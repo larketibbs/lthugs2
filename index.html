@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#29ABE2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#29ABE2">
+    <meta property="og:title" content="Hugs Cafe — Purpose for Every Person">
+    <meta property="og:description" content="Hugs Cafe is a non-profit social enterprise providing meaningful training and employment for individuals with intellectual and developmental disabilities. Become a Monthly Hugger today!">
+    <meta property="og:url" content="https://hugscafe.org/give">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Hugs Cafe Dallas — Support adults with intellectual and developmental disabilities through monthly giving. Hope, Understanding, Grace, and Success.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤗</text></svg>">
+    <title>Hugs Cafe Dallas — Purpose for Every Person</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ── Reset & Base ───────────────────────────────── */
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body {
+            font-family:'Open Sans', sans-serif;
+            color:#3a3a3a;
+            background:#f5fcff;
+            line-height:1.7;
+        }
+        h1,h2,h3,h4,h5 { font-family:'Poppins', sans-serif; }
+        a { text-decoration:none; color:inherit; }
+        img { max-width:100%; display:block; }
+
+        /* ── Utility ────────────────────────────────────── */
+        .container { max-width:1200px; margin:0 auto; padding:0 24px; }
+        .section-title {
+            text-align:center; font-size:2.2rem; font-weight:700;
+            color:#29ABE2; margin-bottom:12px;
+        }
+        .section-subtitle {
+            text-align:center; max-width:700px; margin:0 auto 48px;
+            font-size:1.05rem; color:#6b6b6b;
+        }
+        section { padding:80px 0; }
+
+        /* ── Navbar ─────────────────────────────────────── */
+        .navbar {
+            position:fixed; top:0; left:0; width:100%; z-index:1000;
+            background:rgba(255,255,255,0.97);
+            backdrop-filter:blur(12px);
+            box-shadow:0 2px 20px rgba(0,0,0,0.06);
+            padding:0 24px;
+        }
+        .navbar .container {
+            display:flex; align-items:center; justify-content:space-between;
+            height:68px;
+        }
+        .nav-logo {
+            font-family:'Poppins', sans-serif; font-weight:800;
+            font-size:1.5rem; color:#29ABE2; letter-spacing:1px;
+        }
+        .nav-logo span { color:#7AB648; }
+        .nav-links { display:flex; gap:28px; align-items:center; list-style:none; }
+        .nav-links a {
+            font-size:0.92rem; font-weight:600; color:#555;
+            transition:color 0.3s;
+        }
+        .nav-links a:hover { color:#29ABE2; }
+        .nav-cta {
+            background:linear-gradient(135deg,#7AB648,#5A9A30);
+            color:#fff !important; padding:10px 24px; border-radius:50px;
+            font-weight:700; font-size:0.9rem; transition:transform 0.3s, box-shadow 0.3s;
+        }
+        .nav-cta:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(122,182,72,0.35); }
+
+        .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; }
+        .hamburger span { width:26px; height:3px; background:#29ABE2; border-radius:3px; transition:0.3s; }
+
+        /* ── Hero ───────────────────────────────────────── */
+        .hero {
+            min-height:100vh; display:flex; align-items:center; justify-content:center;
+            background:linear-gradient(135deg,#f5fcff 0%,#dff2fb 40%,#c8e6b8 100%);
+            text-align:center; padding:120px 24px 80px;
+            position:relative; overflow:hidden;
+        }
+        .hero::before {
+            content:''; position:absolute; top:-120px; right:-120px;
+            width:400px; height:400px; border-radius:50%;
+            background:rgba(41,171,226,0.12);
+        }
+        .hero::after {
+            content:''; position:absolute; bottom:-80px; left:-80px;
+            width:300px; height:300px; border-radius:50%;
+            background:rgba(122,182,72,0.1);
+        }
+        .hero-content { position:relative; z-index:1; max-width:780px; }
+        .hero-badge {
+            display:inline-block; background:rgba(41,171,226,0.12);
+            color:#1A8FC4; padding:8px 24px; border-radius:50px;
+            font-weight:700; font-size:0.85rem; letter-spacing:1px;
+            margin-bottom:24px; text-transform:uppercase;
+        }
+        .hero h1 {
+            font-size:3.6rem; font-weight:800; color:#2c2c2c;
+            line-height:1.15; margin-bottom:20px;
+        }
+        .hero h1 span { color:#29ABE2; }
+        .hero p {
+            font-size:1.15rem; color:#5a5a5a; max-width:640px;
+            margin:0 auto 36px;
+        }
+        .hero-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+        .btn-primary {
+            background:linear-gradient(135deg,#7AB648,#5A9A30);
+            color:#fff; padding:14px 36px; border-radius:50px;
+            font-weight:700; font-size:1rem; border:none; cursor:pointer;
+            transition:transform 0.3s, box-shadow 0.3s;
+        }
+        .btn-primary:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(122,182,72,0.35); }
+        .btn-secondary {
+            background:transparent; color:#29ABE2; padding:14px 36px;
+            border-radius:50px; font-weight:700; font-size:1rem;
+            border:2px solid #29ABE2; cursor:pointer;
+            transition:all 0.3s;
+        }
+        .btn-secondary:hover { background:#29ABE2; color:#fff; }
+
+        /* ── Mission / Vision / Belief ──────────────────── */
+        .mvb { background:#fff; }
+        .mvb-grid {
+            display:grid; grid-template-columns:repeat(3,1fr); gap:32px;
+        }
+        .mvb-card {
+            background:#f5fcff; border-radius:20px; padding:40px 32px;
+            text-align:center; border:1px solid #d0eaf7;
+            transition:transform 0.3s, box-shadow 0.3s;
+        }
+        .mvb-card:hover { transform:translateY(-6px); box-shadow:0 12px 40px rgba(41,171,226,0.12); }
+        .mvb-icon { font-size:2.8rem; margin-bottom:16px; }
+        .mvb-card h3 {
+            font-size:1.3rem; color:#29ABE2; margin-bottom:12px;
+        }
+        .mvb-card p { font-size:0.95rem; color:#666; }
+
+        /* ── Values ─────────────────────────────────────── */
+        .values { background:#f5fcff; }
+        .values-grid {
+            display:grid; grid-template-columns:repeat(4,1fr); gap:28px;
+        }
+        .value-card {
+            background:#fff; border-radius:20px; padding:36px 28px;
+            text-align:center; position:relative; overflow:hidden;
+            border:1px solid #d0eaf7;
+            transition:transform 0.3s, box-shadow 0.3s;
+        }
+        .value-card:hover { transform:translateY(-6px); box-shadow:0 12px 40px rgba(41,171,226,0.14); }
+        .value-card .letter {
+            font-family:'Poppins', sans-serif; font-size:4rem;
+            font-weight:800; color:rgba(41,171,226,0.08);
+            position:absolute; top:-8px; right:12px;
+        }
+        .value-card .emoji { font-size:2.6rem; margin-bottom:12px; }
+        .value-card h3 { font-size:1.15rem; color:#29ABE2; margin-bottom:8px; }
+        .value-card p { font-size:0.9rem; color:#777; }
+
+        /* ── Programs ───────────────────────────────────── */
+        .programs { background:#fff; }
+        .programs-grid {
+            display:grid; grid-template-columns:repeat(4,1fr); gap:28px;
+        }
+        .program-card {
+            background:linear-gradient(160deg,#f5fcff,#e8f8f0);
+            border-radius:20px; padding:36px 28px; text-align:center;
+            border:1px solid #d0eaf7;
+            transition:transform 0.3s, box-shadow 0.3s;
+        }
+        .program-card:hover { transform:translateY(-6px); box-shadow:0 12px 40px rgba(41,171,226,0.12); }
+        .program-card .prog-icon { font-size:2.8rem; margin-bottom:16px; }
+        .program-card h3 { font-size:1.1rem; color:#29ABE2; margin-bottom:8px; }
+        .program-card .prog-year {
+            display:inline-block; background:rgba(122,182,72,0.15);
+            color:#5A9A30; padding:3px 14px; border-radius:20px;
+            font-size:0.75rem; font-weight:700; margin-bottom:12px;
+        }
+        .program-card p { font-size:0.88rem; color:#777; }
+
+        /* ── Impact ─────────────────────────────────────── */
+        .impact {
+            background:linear-gradient(135deg,#29ABE2,#1A8FC4,#7AB648);
+            color:#fff;
+        }
+        .impact .section-title { color:#fff; }
+        .impact .section-subtitle { color:rgba(255,255,255,0.85); }
+        .impact-grid {
+            display:grid; grid-template-columns:repeat(4,1fr); gap:32px;
+            text-align:center;
+        }
+        .impact-card {
+            background:rgba(255,255,255,0.12); border-radius:20px;
+            padding:36px 20px; backdrop-filter:blur(6px);
+            border:1px solid rgba(255,255,255,0.2);
+            transition:transform 0.3s;
+        }
+        .impact-card:hover { transform:scale(1.05); }
+        .impact-card .number {
+            font-family:'Poppins', sans-serif; font-size:3rem;
+            font-weight:800; margin-bottom:8px;
+        }
+        .impact-card .label { font-size:0.95rem; opacity:0.9; }
+
+        /* ── Donation ───────────────────────────────────── */
+        .donation {
+            background:linear-gradient(160deg,#f0f9ff,#e8f8f0);
+            position:relative;
+        }
+        .donation-wrapper {
+            max-width:680px; margin:0 auto;
+            background:#fff; border-radius:28px;
+            padding:52px 44px; box-shadow:0 20px 60px rgba(41,171,226,0.12);
+        }
+        .donation-wrapper h2 {
+            text-align:center; font-size:2rem; color:#29ABE2;
+            margin-bottom:8px;
+        }
+        .donation-wrapper .don-sub {
+            text-align:center; font-size:0.95rem; color:#777;
+            margin-bottom:36px; max-width:520px; margin-left:auto; margin-right:auto;
+        }
+        .amount-grid {
+            display:flex; gap:12px; flex-wrap:wrap; justify-content:center;
+            margin-bottom:28px;
+        }
+        .amount-btn {
+            padding:12px 28px; border-radius:50px;
+            border:2px solid #29ABE2; background:transparent;
+            color:#29ABE2; font-weight:700; font-size:1rem;
+            cursor:pointer; transition:all 0.3s;
+            font-family:'Poppins', sans-serif;
+        }
+        .amount-btn:hover, .amount-btn.active {
+            background:linear-gradient(135deg,#29ABE2,#1A8FC4);
+            color:#fff; border-color:#1A8FC4;
+        }
+        .custom-amount {
+            display:flex; align-items:center; gap:8px;
+            max-width:220px; margin:0 auto 32px;
+        }
+        .custom-amount label {
+            font-weight:700; color:#29ABE2; font-size:1.1rem;
+        }
+        .custom-amount input {
+            flex:1; padding:10px 14px; border:2px solid #b8dff0;
+            border-radius:12px; font-size:1rem; outline:none;
+            transition:border 0.3s;
+        }
+        .custom-amount input:focus { border-color:#29ABE2; }
+
+        .form-row { display:flex; gap:16px; margin-bottom:16px; }
+        .form-group { flex:1; display:flex; flex-direction:column; }
+        .form-group label {
+            font-size:0.82rem; font-weight:600; color:#999;
+            margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;
+        }
+        .form-group input {
+            padding:12px 16px; border:2px solid #b8dff0;
+            border-radius:12px; font-size:0.95rem; outline:none;
+            transition:border 0.3s;
+        }
+        .form-group input:focus { border-color:#29ABE2; }
+
+        .recurring-toggle {
+            display:flex; align-items:center; gap:12px;
+            margin:24px 0; justify-content:center;
+        }
+        .toggle-switch {
+            position:relative; width:52px; height:28px;
+        }
+        .toggle-switch input { opacity:0; width:0; height:0; }
+        .toggle-slider {
+            position:absolute; top:0; left:0; right:0; bottom:0;
+            background:#ccc; border-radius:28px; cursor:pointer;
+            transition:0.3s;
+        }
+        .toggle-slider::before {
+            content:''; position:absolute; left:3px; top:3px;
+            width:22px; height:22px; border-radius:50%;
+            background:#fff; transition:0.3s;
+        }
+        .toggle-switch input:checked + .toggle-slider {
+            background:linear-gradient(135deg,#29ABE2,#1A8FC4);
+        }
+        .toggle-switch input:checked + .toggle-slider::before {
+            transform:translateX(24px);
+        }
+        .recurring-label {
+            font-weight:700; font-size:0.95rem; color:#29ABE2;
+        }
+        .recurring-label span { font-weight:400; color:#999; font-size:0.85rem; }
+
+        .submit-btn {
+            display:block; width:100%; padding:16px;
+            background:linear-gradient(135deg,#7AB648,#5A9A30);
+            color:#fff; border:none; border-radius:50px;
+            font-size:1.1rem; font-weight:700; cursor:pointer;
+            margin-top:28px; transition:transform 0.3s, box-shadow 0.3s;
+            font-family:'Poppins', sans-serif;
+        }
+        .submit-btn:hover {
+            transform:translateY(-3px);
+            box-shadow:0 10px 35px rgba(122,182,72,0.35);
+        }
+        .trust-badges {
+            text-align:center; margin-top:20px;
+            font-size:0.82rem; color:#aaa;
+        }
+        .trust-badges span { margin:0 8px; }
+        .tax-note {
+            text-align:center; margin-top:16px;
+            font-size:0.78rem; color:#bbb; font-style:italic;
+        }
+        .form-error {
+            color:#e74c3c; font-size:0.8rem; margin-top:4px; display:none;
+        }
+
+        /* ── Locations ──────────────────────────────────── */
+        .locations { background:#fff; }
+        .locations-grid {
+            display:grid; grid-template-columns:repeat(2,1fr); gap:32px;
+        }
+        .loc-card {
+            background:linear-gradient(160deg,#f5fcff,#e8f8f0);
+            border-radius:20px; padding:40px 32px;
+            border:1px solid #d0eaf7;
+            transition:transform 0.3s, box-shadow 0.3s;
+        }
+        .loc-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(41,171,226,0.12); }
+        .loc-card .loc-icon { font-size:2.2rem; margin-bottom:12px; }
+        .loc-card h3 { font-size:1.3rem; color:#29ABE2; margin-bottom:8px; }
+        .loc-card p { font-size:0.9rem; color:#666; margin-bottom:6px; }
+        .loc-card .loc-hours {
+            display:inline-block; background:rgba(122,182,72,0.15);
+            color:#5A9A30; padding:4px 14px; border-radius:20px;
+            font-size:0.8rem; font-weight:700; margin-top:8px;
+        }
+
+        /* ── Recurring Gift Modal ────────────────────────── */
+        .modal-overlay {
+            position:fixed; top:0; left:0; width:100%; height:100%;
+            background:rgba(0,0,0,0.55); z-index:9999;
+            display:none; align-items:center; justify-content:center;
+            padding:24px;
+        }
+        .modal-overlay.active {
+            display:flex;
+        }
+        .modal-card {
+            background:#fff; max-width:520px; width:100%;
+            border-radius:24px; padding:40px 36px;
+            box-shadow:0 24px 80px rgba(0,0,0,0.25);
+            transform:scale(0.9); opacity:0;
+            animation:modalIn 0.35s ease forwards;
+            text-align:center;
+        }
+        @keyframes modalIn {
+            to { transform:scale(1); opacity:1; }
+        }
+        .modal-header {
+            font-family:'Poppins', sans-serif; font-size:1.6rem;
+            font-weight:700; color:#29ABE2; margin-bottom:16px;
+        }
+        .modal-body-intro {
+            font-size:0.95rem; color:#555; line-height:1.7;
+            margin-bottom:20px;
+        }
+        .modal-benefits {
+            list-style:none; text-align:left;
+            margin:0 auto 28px; max-width:440px; padding:0;
+        }
+        .modal-benefits li {
+            font-size:0.9rem; color:#444; padding:8px 0;
+            border-bottom:1px solid #eef7ed;
+            line-height:1.5;
+        }
+        .modal-benefits li:last-child { border-bottom:none; }
+        .modal-buttons {
+            display:flex; gap:14px; justify-content:center;
+            flex-wrap:wrap; margin-top:8px;
+        }
+        .modal-btn-primary {
+            background:linear-gradient(135deg,#7AB648,#5A9A30);
+            color:#fff; padding:13px 28px; border-radius:50px;
+            font-weight:700; font-size:0.95rem; border:none;
+            cursor:pointer; transition:transform 0.3s, box-shadow 0.3s;
+            font-family:'Poppins', sans-serif;
+        }
+        .modal-btn-primary:hover {
+            transform:translateY(-2px);
+            box-shadow:0 8px 28px rgba(122,182,72,0.35);
+        }
+        .modal-btn-secondary {
+            background:transparent; color:#29ABE2;
+            padding:13px 28px; border-radius:50px;
+            font-weight:700; font-size:0.95rem;
+            border:2px solid #29ABE2; cursor:pointer;
+            transition:all 0.3s;
+            font-family:'Poppins', sans-serif;
+        }
+        .modal-btn-secondary:hover {
+            background:#29ABE2; color:#fff;
+        }
+
+        /* ── Floating Action Button (Mobile) ──────────── */
+        .fab-donate {
+            position:fixed; bottom:24px; right:24px;
+            width:60px; height:60px; border-radius:50%;
+            background:linear-gradient(135deg,#7AB648,#5A9A30);
+            color:#fff; font-size:1.6rem;
+            display:none; align-items:center; justify-content:center;
+            box-shadow:0 6px 24px rgba(122,182,72,0.4);
+            z-index:999; border:none; cursor:pointer;
+            transition:transform 0.3s, box-shadow 0.3s;
+            text-decoration:none;
+            animation: fab-pulse 2s ease-in-out infinite;
+        }
+        .fab-donate:hover { transform:scale(1.1); box-shadow:0 8px 32px rgba(122,182,72,0.5); }
+        @keyframes fab-pulse {
+            0%, 100% { box-shadow:0 6px 24px rgba(122,182,72,0.4); }
+            50% { box-shadow:0 6px 36px rgba(122,182,72,0.65); }
+        }
+        @media(max-width:768px) {
+            .fab-donate { display:flex; }
+        }
+
+        /* ── Footer ─────────────────────────────────────── */
+        .footer {
+            background:#2c2c2c; color:#ccc; padding:56px 0 28px;
+        }
+        .footer-grid {
+            display:grid; grid-template-columns:repeat(3,1fr); gap:40px;
+            margin-bottom:40px;
+        }
+        .footer h4 {
+            font-family:'Poppins', sans-serif; color:#29ABE2;
+            margin-bottom:16px; font-size:1.05rem;
+        }
+        .footer p, .footer a { font-size:0.88rem; color:#aaa; }
+        .footer a:hover { color:#7AB648; }
+        .footer ul { list-style:none; }
+        .footer ul li { margin-bottom:10px; }
+        .social-links { display:flex; gap:12px; margin-top:12px; }
+        .social-links a {
+            width:40px; height:40px; border-radius:50%;
+            background:rgba(255,255,255,0.08); display:flex;
+            align-items:center; justify-content:center;
+            font-size:1.1rem; transition:background 0.3s;
+        }
+        .social-links a:hover { background:rgba(41,171,226,0.3); }
+        .footer-bottom {
+            border-top:1px solid rgba(255,255,255,0.08);
+            padding-top:24px; text-align:center;
+            font-size:0.82rem; color:#777;
+        }
+        .footer-bottom .tagline {
+            color:#7AB648; font-weight:600; font-style:italic;
+            margin-bottom:6px; font-size:0.9rem;
+        }
+
+        /* ── Responsive ─────────────────────────────────── */
+        @media (max-width:992px) {
+            .mvb-grid, .programs-grid { grid-template-columns:repeat(2,1fr); }
+            .values-grid, .impact-grid { grid-template-columns:repeat(2,1fr); }
+            .hero h1 { font-size:2.8rem; }
+        }
+        @media (max-width:768px) {
+            .nav-links { display:none; }
+            .hamburger { display:flex; }
+            .nav-links.open {
+                display:flex; flex-direction:column; position:absolute;
+                top:68px; left:0; width:100%; background:#fff;
+                padding:24px; gap:18px; box-shadow:0 8px 30px rgba(0,0,0,0.1);
+            }
+            .mvb-grid, .values-grid, .programs-grid,
+            .impact-grid, .locations-grid { grid-template-columns:1fr; }
+            .hero h1 { font-size:2.2rem; }
+            .hero p { font-size:1rem; }
+            .section-title { font-size:1.8rem; }
+            .donation-wrapper { padding:36px 24px; }
+            .form-row { flex-direction:column; }
+            .footer-grid { grid-template-columns:1fr; }
+            .modal-card { padding:32px 24px; }
+            .modal-buttons { flex-direction:column; }
+            .modal-btn-primary, .modal-btn-secondary { width:100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ════════════ NAVBAR ════════════ -->
+<nav class="navbar">
+    <div class="container">
+        <a href="#" class="nav-logo">HUGS <span>CAFÉ</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#mission">Our Mission</a></li>
+            <li><a href="#values">Our Values</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="#donate" class="nav-cta">Donate Now ❤️</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ════════════ HERO ════════════ -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-badge">🤗 Hope · Understanding · Grace · Success</div>
+        <h1>Purpose for <span>Every Person</span></h1>
+        <p>Hugs Cafe Inc. is a non-profit social enterprise dedicated to providing meaningful training and competitively-paid employment for individuals with intellectual and developmental disabilities.</p>
+        <div class="hero-btns">
+            <a href="#donate" class="btn-primary">Start Giving ❤️</a>
+            <a href="#mission" class="btn-secondary">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ MISSION / VISION / BELIEF ════════════ -->
+<section class="mvb" id="mission">
+    <div class="container">
+        <h2 class="section-title">Who We Are</h2>
+        <p class="section-subtitle">Founded on a dream and driven by compassion, Hugs Cafe is more than a restaurant — it's a movement.</p>
+        <div class="mvb-grid">
+            <div class="mvb-card">
+                <div class="mvb-icon">🎯</div>
+                <h3>Our Mission</h3>
+                <p>To enhance the lives of individuals with intellectual and developmental disabilities through training and employment.</p>
+            </div>
+            <div class="mvb-card">
+                <div class="mvb-icon">🔭</div>
+                <h3>Our Vision</h3>
+                <p>We envision a world where people are recognized for the things they can do rather than the things they cannot.</p>
+            </div>
+            <div class="mvb-card">
+                <div class="mvb-icon">💛</div>
+                <h3>Our Belief</h3>
+                <p>We believe in offering Hope, Understanding, Grace, and Success (HUGS) to each individual so they can be recognized for their talents in the community.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ VALUES ════════════ -->
+<section class="values" id="values">
+    <div class="container">
+        <h2 class="section-title">What HUGS Stands For</h2>
+        <p class="section-subtitle">Four core values guide everything we do — from the kitchen to the community.</p>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="letter">H</div>
+                <div class="emoji">🌟</div>
+                <h3>Hope</h3>
+                <p>We nurture the belief that every individual can achieve great things, lighting a path toward independence and purpose.</p>
+            </div>
+            <div class="value-card">
+                <div class="letter">U</div>
+                <div class="emoji">🤝</div>
+                <h3>Understanding</h3>
+                <p>We cultivate empathy and patience, meeting each person where they are and celebrating their unique journey.</p>
+            </div>
+            <div class="value-card">
+                <div class="letter">G</div>
+                <div class="emoji">🌿</div>
+                <h3>Grace</h3>
+                <p>We create a compassionate environment where mistakes become lessons and every effort is honored with kindness.</p>
+            </div>
+            <div class="value-card">
+                <div class="letter">S</div>
+                <div class="emoji">🏆</div>
+                <h3>Success</h3>
+                <p>We define success by the growth, confidence, and joy our team members discover through meaningful work each day.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ PROGRAMS ════════════ -->
+<section class="programs" id="programs">
+    <div class="container">
+        <h2 class="section-title">Our Programs</h2>
+        <p class="section-subtitle">Four distinct programs working together to build skills, confidence, and community for adults with IDD.</p>
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="prog-icon">🍽️</div>
+                <h3>Hugs Cafe</h3>
+                <div class="prog-year">Est. 2015</div>
+                <p>Our flagship program employing individuals with IDD in a full-service cafe setting — from greeting guests to preparing world-class food.</p>
+            </div>
+            <div class="program-card">
+                <div class="prog-icon">🌱</div>
+                <h3>Hugs Greenhouse</h3>
+                <div class="prog-year">Est. 2018</div>
+                <p>Our team grows native Texas perennials and seasonal bedding plants on 4 acres, learning gardening, retail, and socialization skills.</p>
+            </div>
+            <div class="program-card">
+                <div class="prog-icon">🎓</div>
+                <h3>Hugs Training Academy</h3>
+                <div class="prog-year">Est. 2022</div>
+                <p>A 12-week workforce readiness course teaching culinary and hospitality skills, including the Food Handler's Exam and job placement.</p>
+            </div>
+            <div class="program-card">
+                <div class="prog-icon">👨‍🍳</div>
+                <h3>Hugs Home Cooking</h3>
+                <div class="prog-year">Est. 2019</div>
+                <p>Monthly group cooking classes led by a classically trained chef, building life skills, independence, and social connections.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ IMPACT ════════════ -->
+<section class="impact" id="impact">
+    <div class="container">
+        <h2 class="section-title">Our Impact</h2>
+        <p class="section-subtitle">Real numbers behind a mission that changes lives every single day.</p>
+        <div class="impact-grid">
+            <div class="impact-card">
+                <div class="number">81%</div>
+                <div class="label">Of Staff Have Intellectual &amp; Developmental Disabilities</div>
+            </div>
+            <div class="impact-card">
+                <div class="number">10+</div>
+                <div class="label">Years of Transforming Lives Through Work</div>
+            </div>
+            <div class="impact-card">
+                <div class="number">2</div>
+                <div class="label">Cafe Locations — McKinney &amp; Dallas</div>
+            </div>
+            <div class="impact-card">
+                <div class="number">30+</div>
+                <div class="label">Individuals Employed at the New Dallas Location</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ DONATION ════════════ -->
+<section class="donation" id="donate">
+    <div class="container">
+        <div class="donation-wrapper">
+            <h2>Become a Monthly Hugger 🤗</h2>
+            <p class="don-sub">Your recurring gift provides steady, reliable support that helps us plan ahead and sustain life-changing programs for adults with IDD.</p>
+
+            <!-- Amount Buttons -->
+            <div class="amount-grid">
+                <button class="amount-btn" data-amount="10" onclick="selectAmount(this)">$10</button>
+                <button class="amount-btn active" data-amount="25" onclick="selectAmount(this)">$25</button>
+                <button class="amount-btn" data-amount="50" onclick="selectAmount(this)">$50</button>
+                <button class="amount-btn" data-amount="100" onclick="selectAmount(this)">$100</button>
+            </div>
+            <div class="custom-amount">
+                <label>$</label>
+                <input type="number" id="customAmount" placeholder="Other" min="1" onfocus="clearPreset()" oninput="clearPreset()">
+            </div>
+
+            <!-- Form -->
+            <form id="donationForm" onsubmit="return handleSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" placeholder="Jane Doe" required>
+                        <div class="form-error" id="nameError">Please enter your full name.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="jane@example.com" required>
+                        <div class="form-error" id="emailError">Please enter a valid email.</div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                        <div class="form-error" id="cardError">Please enter a valid card number.</div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry">Expiration</label>
+                        <input type="text" id="expiry" placeholder="MM / YY" maxlength="7" required>
+                        <div class="form-error" id="expiryError">Enter a valid date (MM/YY).</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123" maxlength="4" required>
+                        <div class="form-error" id="cvvError">Enter a valid CVV.</div>
+                    </div>
+                </div>
+
+                <!-- Recurring Toggle -->
+                <div class="recurring-toggle">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="recurringToggle" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <div class="recurring-label">
+                        Make this a recurring monthly gift<br>
+                        <span>Uncheck to switch to a one-time contribution</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">Complete My Monthly Gift ❤️</button>
+            </form>
+
+            <div class="trust-badges">
+                <span>🔒 Secure &amp; Encrypted</span>
+                <span>|</span>
+                <span>501(c)(3) Tax-Deductible</span>
+                <span>|</span>
+                <span>Cancel Anytime</span>
+            </div>
+            <p class="tax-note">Hugs Cafe Inc. is a registered 501(c)(3) nonprofit organization. Your donation is tax-deductible to the fullest extent of the law.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ LOCATIONS ════════════ -->
+<section class="locations" id="locations">
+    <div class="container">
+        <h2 class="section-title">Visit Us</h2>
+        <p class="section-subtitle">Two locations serving up great food and even greater purpose.</p>
+        <div class="locations-grid">
+            <div class="loc-card">
+                <div class="loc-icon">📍</div>
+                <h3>Hugs Cafe — McKinney</h3>
+                <p>221 Andrews St, McKinney, TX 75069</p>
+                <p>📞 (469) 301-6900</p>
+                <p>🌐 <a href="https://hugscafe.org/" target="_blank" style="color:#29ABE2;font-weight:600;">hugscafe.org</a></p>
+                <div class="loc-hours">Mon – Sat · 8:00 AM – 3:00 PM</div>
+            </div>
+            <div class="loc-card">
+                <div class="loc-icon">📍</div>
+                <h3>Hugs Cafe — Dallas</h3>
+                <p>2918 Live Oak St, Dallas, TX 75204</p>
+                <p>📞 (469) 301-6900</p>
+                <p>🌐 <a href="https://hugscafe.org/" target="_blank" style="color:#29ABE2;font-weight:600;">hugscafe.org</a></p>
+                <div class="loc-hours">Mon – Sat · 8:00 AM – 3:00 PM</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h4>HUGS CAFÉ</h4>
+                <p>A 501(c)(3) non-profit social enterprise providing meaningful training and employment for adults with intellectual and developmental disabilities.</p>
+                <div class="social-links">
+                    <a href="https://hugscafe.org/" target="_blank" title="Website">🌐</a>
+                    <a href="#" title="Facebook">📘</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="https://www.linkedin.com/company/hugs-cafe-inc." target="_blank" title="LinkedIn">💼</a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#mission">Our Mission</a></li>
+                    <li><a href="#values">Our Values</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#donate">Donate</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Get In Touch</h4>
+                <p>📧 info@hugscafe.org</p>
+                <p>📞 (469) 301-6900</p>
+                <p style="margin-top:12px;">McKinney: 221 Andrews St, TX 75069</p>
+                <p>Dallas: 2918 Live Oak St, TX 75204</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="tagline">"Have you had your Hugs today?" 🤗</p>
+            <p>&copy; 2026 Hugs Cafe Inc. All Rights Reserved. | <a href="https://hugscafe.org/" target="_blank" style="color:#7AB648;">hugscafe.org</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- ════════════ RECURRING GIFT MODAL ════════════ -->
+<div class="modal-overlay" id="recurringModal" onclick="overlayClick(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+        <h3 class="modal-header">Are you sure? 🤔</h3>
+        <p class="modal-body-intro" id="modalIntro">
+            Your monthly gift creates a reliable foundation that helps Hugs Cafe plan ahead and sustain life-changing programs year-round. Here's what recurring giving makes possible:
+        </p>
+        <ul class="modal-benefits">
+            <li>✅ Consistent job training &amp; employment for adults with IDD</li>
+            <li>✅ Steady, competitive wages for 30+ team members across two cafe locations</li>
+            <li>✅ Long-term growth for the Greenhouse, Training Academy &amp; Home Cooking programs</li>
+            <li>✅ A $25/month gift = $300/year of sustained, tax-deductible impact</li>
+        </ul>
+        <div class="modal-buttons">
+            <button class="modal-btn-primary" onclick="keepRecurring()">Keep My Monthly Gift ❤️</button>
+            <button class="modal-btn-secondary" onclick="switchToOneTime()">Switch to One-Time Gift</button>
+        </div>
+    </div>
+</div>
+
+<!-- ════════════ MOBILE FAB ════════════ -->
+<a href="#donate" class="fab-donate" aria-label="Donate Now">❤️</a>
+
+<!-- ════════════ SCRIPTS ════════════ -->
+<script>
+    // ── Mobile Nav Toggle ──
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a =>
+        a.addEventListener('click', () => navLinks.classList.remove('open'))
+    );
+
+    // ── Amount Selection ──
+    let selectedAmount = 25;
+    function selectAmount(btn) {
+        document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedAmount = parseInt(btn.dataset.amount);
+        document.getElementById('customAmount').value = '';
+        updateSubmitLabel();
+    }
+    function clearPreset() {
+        document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+        const val = document.getElementById('customAmount').value;
+        selectedAmount = val ? parseInt(val) : 0;
+        updateSubmitLabel();
+    }
+    function updateSubmitLabel() {
+        const recurring = document.getElementById('recurringToggle').checked;
+        const label = recurring ? 'Complete My Monthly Gift' : 'Complete My One-Time Gift';
+        const amt = selectedAmount > 0 ? ' \u2014 $' + selectedAmount : '';
+        document.getElementById('submitBtn').textContent = label + amt + ' \u2764\uFE0F';
+    }
+
+    // ── Recurring Toggle with Confirmation Modal ──
+    const recurringToggle = document.getElementById('recurringToggle');
+    const modal = document.getElementById('recurringModal');
+
+    recurringToggle.addEventListener('change', function() {
+        if (!this.checked) {
+            // User wants to switch to one-time — show confirmation modal first
+            this.checked = true; // temporarily re-check until user confirms
+            showModal();
+        } else {
+            updateSubmitLabel();
+        }
+    });
+
+    function showModal() {
+        // Update the modal intro text with the current selected amount
+        const amt = selectedAmount > 0 ? selectedAmount : 25;
+        const yearly = amt * 12;
+        document.getElementById('modalIntro').innerHTML =
+            'Your monthly gift of <strong>$' + amt + '</strong> creates a reliable foundation that helps Hugs Cafe plan ahead and sustain life-changing programs year-round. Here\'s what recurring giving makes possible:';
+        // Update the yearly impact bullet
+        const bullets = document.querySelectorAll('.modal-benefits li');
+        bullets[3].innerHTML = '\u2705 A $' + amt + '/month gift = <strong>$' + yearly + '/year</strong> of sustained, tax-deductible impact';
+        // Show modal
+        modal.classList.add('active');
+        // Reset animation
+        const card = modal.querySelector('.modal-card');
+        card.style.animation = 'none';
+        card.offsetHeight; // force reflow
+        card.style.animation = '';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function hideModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function keepRecurring() {
+        recurringToggle.checked = true;
+        hideModal();
+        updateSubmitLabel();
+    }
+
+    function switchToOneTime() {
+        recurringToggle.checked = false;
+        hideModal();
+        updateSubmitLabel();
+    }
+
+    function overlayClick(e) {
+        // Clicking outside the card defaults to keeping recurring
+        if (e.target === modal) {
+            keepRecurring();
+        }
+    }
+
+    // Close modal on Escape key — defaults to keeping recurring
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            keepRecurring();
+        }
+    });
+
+    // Initialize button label
+    updateSubmitLabel();
+
+    // ── Form Validation ──
+    function hideErrors() {
+        document.querySelectorAll('.form-error').forEach(e => e.style.display = 'none');
+    }
+    function showError(id) {
+        document.getElementById(id).style.display = 'block';
+    }
+    function handleSubmit(e) {
+        e.preventDefault();
+        hideErrors();
+        let valid = true;
+        const name = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const card = document.getElementById('cardNumber').value.replace(/\s/g, '');
+        const expiry = document.getElementById('expiry').value.trim();
+        const cvv = document.getElementById('cvv').value.trim();
+        const custom = document.getElementById('customAmount').value;
+        const amount = custom ? parseInt(custom) : selectedAmount;
+
+        if (name.length < 2) { showError('nameError'); valid = false; }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('emailError'); valid = false; }
+        if (!/^\d{13,19}$/.test(card)) { showError('cardError'); valid = false; }
+        if (!/^\d{2}\s*\/\s*\d{2}$/.test(expiry)) { showError('expiryError'); valid = false; }
+        if (!/^\d{3,4}$/.test(cvv)) { showError('cvvError'); valid = false; }
+
+        if (!amount || amount < 1) {
+            alert('Please select or enter a donation amount.');
+            return false;
+        }
+        if (valid) {
+            const recurring = document.getElementById('recurringToggle').checked;
+            const type = recurring ? 'recurring monthly' : 'one-time';
+            alert('Thank you, ' + name + '! \uD83E\uDD17\n\nYour ' + type + ' gift of $' + amount + ' will make a meaningful difference in the lives of adults with IDD at Hugs Cafe.\n\n(This is a demo \u2014 no payment has been processed.)');
+            document.getElementById('donationForm').reset();
+            document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.amount-btn[data-amount="25"]').classList.add('active');
+            selectedAmount = 25;
+            document.getElementById('recurringToggle').checked = true;
+            updateSubmitLabel();
+        }
+        return false;
+    }
+</script>
+
+</body>
+</html>
